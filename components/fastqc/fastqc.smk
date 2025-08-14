@@ -9,8 +9,8 @@ rule fastqc_raw:
     params:
         queue="shortq"
         adapters=config["fastqc"]["adapters"]
-        threads: 4
-        resources:
-            mem_mb=25600
-        shell:
+    threads: 4
+    resources:
+        mem_mb=25600
+    shell:
             "fastqc -t {threads} -a {params.adapters} -o fastqc_raw/{input.fastq} 2>{log}
