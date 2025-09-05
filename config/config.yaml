@@ -1,0 +1,10 @@
+references:
+    human:
+        fasta: ""
+        dict: ""
+        index: ""
+
+mutect2:
+
+bwa:
+

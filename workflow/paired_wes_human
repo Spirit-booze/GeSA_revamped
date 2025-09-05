@@ -3,3 +3,6 @@ print("Loading configuration file")
 configfile: "config/config.yaml"
 
 include: "components/fastqc/fastqc.smk"
+
+# TODO
+# add universal parsing of input files (since this is complete from fastqs)
