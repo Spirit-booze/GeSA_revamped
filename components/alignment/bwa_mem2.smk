@@ -1,6 +1,8 @@
+# fix env address to the root - to ensure that Snakemake looks for env yaml in the correct place
+from pathlib import Path
+ENV_DIR = Path(workflow.basedir) / "envs"
 
-
-rule bwa_mem:
+rule bwa_mem2:
     input:
         r1 = "DNA_samples/{sample}_1.fastq.gz", 
         r2 = "DNA_samples/{sample}_2.fastq.gz"
@@ -19,7 +21,7 @@ rule bwa_mem:
     resources:
         mem_mb = 25000
     conda:
-        "envs/bwa_mem2.yaml"
+        str(ENV_DIR / "envs/bwa_mem2.yml")
     shell:
         '''
         bwa-mem2 mem -t {threads} -R {params.rg} {params.ref} {input.r1} {input.r2} 2> {log} \

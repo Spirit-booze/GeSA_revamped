@@ -18,6 +18,7 @@ rule fastqc_raw:
     threads: 4
     resources:
         mem_mb=25600
-    conda: str(ENV_DIR / "fastqc.yml")
+    conda: 
+        str(ENV_DIR / "fastqc.yml")
     shell:
             "fastqc -t {threads} -a {params.adapters} -o fastqc_raw/{input.fastq} 2>{log}

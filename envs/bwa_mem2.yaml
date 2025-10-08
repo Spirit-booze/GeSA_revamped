@@ -1,0 +1,10 @@
+name: bwa_mem2
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+channel_priority: strict
+dependencies:
+  - bwa-mem2=2.3
+  - samtools>=1.18
+  - pigz
